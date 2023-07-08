@@ -1,11 +1,11 @@
-![GitHub Repo stars](https://img.shields.io/github/stars/midzer/go-cli-template?style=social)
-![GitHub](https://img.shields.io/github/license/midzer/go-cli-template)
-![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/midzer/go-cli-template)
-![GitHub all releases](https://img.shields.io/github/downloads/midzer/go-cli-template/total)
-![GitHub CI Status](https://img.shields.io/github/workflow/status/midzer/go-cli-template/ci?label=CI)
-![GitHub Release Status](https://img.shields.io/github/workflow/status/midzer/go-cli-template/Release?label=release)
+![GitHub Repo stars](https://img.shields.io/github/stars/midzer/sitemap2rss?style=social)
+![GitHub](https://img.shields.io/github/license/midzer/sitemap2rss)
+![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/midzer/sitemap2rss)
+![GitHub all releases](https://img.shields.io/github/downloads/midzer/sitemap2rss/total)
+![GitHub CI Status](https://img.shields.io/github/workflow/status/midzer/sitemap2rss/ci?label=CI)
+![GitHub Release Status](https://img.shields.io/github/workflow/status/midzer/sitemap2rss/Release?label=release)
 
-# go-cli-template
+# sitemap2rss
 
 Minimal Go CLI boilerplate/template with zero dependencies
 

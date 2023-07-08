@@ -1,11 +1,11 @@
-![GitHub Repo stars](https://img.shields.io/github/stars/midzer/sitemap2rss?style=social)
-![GitHub](https://img.shields.io/github/license/midzer/sitemap2rss)
-![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/midzer/sitemap2rss)
-![GitHub all releases](https://img.shields.io/github/downloads/midzer/sitemap2rss/total)
-![GitHub CI Status](https://img.shields.io/github/workflow/status/midzer/sitemap2rss/ci?label=CI)
-![GitHub Release Status](https://img.shields.io/github/workflow/status/midzer/sitemap2rss/Release?label=release)
+![GitHub Repo stars](https://img.shields.io/github/stars/midzer/sitemap2feed?style=social)
+![GitHub](https://img.shields.io/github/license/midzer/sitemap2feed)
+![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/midzer/sitemap2feed)
+![GitHub all releases](https://img.shields.io/github/downloads/midzer/sitemap2feed/total)
+![GitHub CI Status](https://img.shields.io/github/workflow/status/midzer/sitemap2feed/ci?label=CI)
+![GitHub Release Status](https://img.shields.io/github/workflow/status/midzer/sitemap2feed/Release?label=release)
 
-# sitemap2rss
+# sitemap2feed
 
 Minimal Go CLI boilerplate/template with zero dependencies
 

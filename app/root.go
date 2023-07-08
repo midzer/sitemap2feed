@@ -2,13 +2,13 @@ package app
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
 	"log"
 	"os"
+	"time"
 
 	"github.com/bored-engineer/sitemap"
-	JSON "github.com/mmcdole/gofeed/json"
+	"github.com/gorilla/feeds"
 )
 
 func CLI(args []string) int {
@@ -36,40 +36,66 @@ func (app *appEnv) run() error {
 
 	urls, err := sitemap.Fetch(context.TODO(), "https://sitemaps.org/sitemap.xml")
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
-	
-	var items []*JSON.Item
+
+	feed := &feeds.Feed {
+		Title:      "Sitemaps",
+		Link: &feeds.Link { Href: "https://sitemaps.org/" },
+	}
+
 	for _, url := range urls {
 		log.Println(url.LastModification, url.Location)
-		item := &JSON.Item {
-			ID: url.Location,
-			URL: url.Location,
-			DatePublished: url.LastModification.String(),
+		updated, err := time.Parse("2006-01-02", url.LastModification.String())
+		if err != nil {
+			log.Fatal(err)
 		}
-		items = append(items, item)
+		item := &feeds.Item {
+			Id: url.Location,
+			Link: &feeds.Link { Href: url.Location },
+			Updated: updated,
+		}
+		feed.Add(item)
 	}
 
-	data := &JSON.Feed {
-		Version:    "https://jsonfeed.org/version/1.1",
-		Title:      "Sitemaps",
-		HomePageURL: "https://sitemaps.org/",
-		FeedURL:    "https://sitemaps.org/feed.json",
-		Items: items,
-	}
+	atom, err := feed.ToAtom()
+    if err != nil {
+        log.Fatal(err)
+    }
 
-	result, err := json.MarshalIndent(data, "", "\t")
-	if err != nil {
-		panic(err)
-	}
-
-	f, err := os.Create("feed.json")
+	f, err := os.Create("atom.xml")
 	if err != nil{
-		panic(err)
+		log.Fatal(err)
 	}
 	defer f.Close()
 
-	f.Write(result)
+	f.WriteString(atom)
+
+    rss, err := feed.ToRss()
+    if err != nil {
+        log.Fatal(err)
+    }
+
+	f, err = os.Create("rss.xml")
+	if err != nil{
+		log.Fatal(err)
+	}
+	defer f.Close()
+
+	f.WriteString(rss)
+
+    json, err := feed.ToJSON()
+    if err != nil {
+        log.Fatal(err)
+    }
+
+	f, err = os.Create("feed.json")
+	if err != nil{
+		log.Fatal(err)
+	}
+	defer f.Close()
+
+	f.WriteString(json)
 
 	return nil
 }

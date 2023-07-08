@@ -21,7 +21,7 @@ func CLI(args []string) int {
 		fmt.Fprintf(os.Stderr, "Runtime error: %v\n", err)
 		return 1
 	}
-	
+
 	return 0
 }
 
@@ -39,9 +39,9 @@ func (app *appEnv) run() error {
 		log.Fatal(err)
 	}
 
-	feed := &feeds.Feed {
-		Title:      "Sitemaps",
-		Link: &feeds.Link { Href: "https://sitemaps.org/" },
+	feed := &feeds.Feed{
+		Title: "Sitemaps",
+		Link:  &feeds.Link{Href: "https://sitemaps.org/"},
 	}
 
 	for _, url := range urls {
@@ -50,47 +50,47 @@ func (app *appEnv) run() error {
 		if err != nil {
 			log.Fatal(err)
 		}
-		item := &feeds.Item {
-			Id: url.Location,
-			Link: &feeds.Link { Href: url.Location },
+		item := &feeds.Item{
+			Id:      url.Location,
+			Link:    &feeds.Link{Href: url.Location},
 			Updated: updated,
 		}
 		feed.Add(item)
 	}
 
 	atom, err := feed.ToAtom()
-    if err != nil {
-        log.Fatal(err)
-    }
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	f, err := os.Create("atom.xml")
-	if err != nil{
+	if err != nil {
 		log.Fatal(err)
 	}
 	defer f.Close()
 
 	f.WriteString(atom)
 
-    rss, err := feed.ToRss()
-    if err != nil {
-        log.Fatal(err)
-    }
+	rss, err := feed.ToRss()
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	f, err = os.Create("rss.xml")
-	if err != nil{
+	if err != nil {
 		log.Fatal(err)
 	}
 	defer f.Close()
 
 	f.WriteString(rss)
 
-    json, err := feed.ToJSON()
-    if err != nil {
-        log.Fatal(err)
-    }
+	json, err := feed.ToJSON()
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	f, err = os.Create("feed.json")
-	if err != nil{
+	if err != nil {
 		log.Fatal(err)
 	}
 	defer f.Close()

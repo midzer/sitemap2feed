@@ -1,9 +1,5 @@
-![GitHub Repo stars](https://img.shields.io/github/stars/midzer/sitemap2feed?style=social)
-![GitHub](https://img.shields.io/github/license/midzer/sitemap2feed)
-![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/midzer/sitemap2feed)
-![GitHub all releases](https://img.shields.io/github/downloads/midzer/sitemap2feed/total)
-![GitHub CI Status](https://img.shields.io/github/workflow/status/midzer/sitemap2feed/ci?label=CI)
-![GitHub Release Status](https://img.shields.io/github/workflow/status/midzer/sitemap2feed/Release?label=release)
+[![Build Status](https://github.com/midzer/sitemap2feed/workflows/build/badge.svg)](https://github.com/midzer/sitemap2feed/actions)
+[![Go ReportCard](https://goreportcard.com/badge/midzer/sitemap2feed)](https://goreportcard.com/report/midzer/sitemap2feed)
 
 # sitemap2feed
 

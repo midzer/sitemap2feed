@@ -39,14 +39,14 @@ func writeFile(fname string, c func() (string, error)) error {
 }
 
 func run() error {
-	urls, err := sitemap.Fetch(context.Background(), "https://sitemaps.org/sitemap.xml")
+	urls, err := sitemap.Fetch(context.Background(), "https://www.asheeshkg.com/post-sitemap.xml")
 	if err != nil {
 		return fmt.Errorf("can't fetch sitemap: %w", err)
 	}
 
 	feed := &feeds.Feed{
 		Title: "Sitemaps",
-		Link:  &feeds.Link{Href: "https://sitemaps.org/"},
+		Link:  &feeds.Link{Href: "https://www.asheeshkg.com/"},
 	}
 
 	for _, url := range urls {
